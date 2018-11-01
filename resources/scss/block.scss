@@ -1,0 +1,42 @@
+.block--recent_tweets_block {
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            padding: 0.5em 0;
+            border-top: 1px solid #ddd;
+
+            &:last-of-type {
+                border-bottom: 1px solid #ddd;
+            }
+
+            > a {
+                color: #999;
+                display: block;
+                font-style: italic;
+                font-weight: normal;
+                text-decoration: none;
+            }
+
+            .share {
+                a {
+                    color: #eeeeee;
+                    font-style: italic;
+                    font-weight: normal;
+                    text-decoration: none;
+                }
+            }
+
+            &:hover {
+                .share {
+                    a {
+                        color: #cccccc;
+                    }
+                }
+            }
+        }
+    }
+}

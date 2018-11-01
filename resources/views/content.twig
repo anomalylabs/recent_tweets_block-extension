@@ -1,15 +1,32 @@
-<div class="tweets">
+{{ asset_add("styles.css", "anomaly.extension.recent_tweets_block::scss/block.scss") }}
 
-    {% set recent = twitter('statuses/user_timeline')
-    .screenName(block.username.value)
-    .count(block.count.value)
-    .excludeReplies(true)
-    .includeRts(true)
-    .get() %}
+{% set recent = twitter('statuses/user_timeline')
+.screenName(block.username.value)
+.count(block.count.value)
+.excludeReplies(true)
+.includeRts(true)
+.get() %}
 
+<ul>
     {% for tweet in recent %}
-        <div class="tweet">
-            <p>{{ tweet.text|str_linkify|raw }}</p>
-        </div>
+        <li>
+            <span>{{ tweet.text|str_linkify|raw }}</span>
+            <a target="_blank"
+               href="http://twitter.com/{{ block.username }}/statuses/{{ tweet.id }}">
+                <small>{{ carbon(tweet.created_at).diffForHumans() }}</small>
+            </a>
+
+            <div class="share">
+                <a href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}">
+                    <span class="fa fa-reply"></span>
+                </a>
+                <a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}">
+                    <span class="fa fa-retweet"></span>
+                </a>
+                <a href="https://twitter.com/intent/like?tweet_id={{ tweet.id }}">
+                    <span class="fa fa-star"></span>
+                </a>
+            </div>
+        </li>
     {% endfor %}
-</div>
+</ul>
