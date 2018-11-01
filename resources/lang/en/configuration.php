@@ -7,6 +7,7 @@ return [
     ],
     'count'    => [
         'name'         => 'Count',
-        'instructions' => 'How many tweets would you like to display?',
+        'instructions' => 'How many tweets would you like to <em>try</em> to display?',
+        'warning'      => 'Twitter considers count includes RTs.',
     ],
 ];
