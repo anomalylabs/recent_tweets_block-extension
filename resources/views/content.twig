@@ -1,0 +1,15 @@
+<div class="tweets">
+
+    {% set recent = twitter('statuses/user_timeline')
+    .screenName(block.username.value)
+    .count(block.count.value)
+    .excludeReplies(true)
+    .includeRts(true)
+    .get() %}
+
+    {% for tweet in recent %}
+        <div class="tweet">
+            <p>{{ tweet.text|str_linkify|raw }}</p>
+        </div>
+    {% endfor %}
+</div>
