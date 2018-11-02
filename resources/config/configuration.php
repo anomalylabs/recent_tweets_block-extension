@@ -1,15 +1,34 @@
 <?php
 
 return [
-    'username' => [
+    'username'         => [
         'required' => true,
         'type'     => 'anomaly.field_type.text',
     ],
-    'count'    => [
-        'required' => true,
-        'type'     => 'anomaly.field_type.integer',
-        'config'   => [
-            'default_value' => 5,
+    'count'            => [
+        'type'        => 'anomaly.field_type.integer',
+        'placeholder' => 5,
+    ],
+    'include_retweets' => [
+        'type'   => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => true,
         ],
+    ],
+    'display_media'    => [
+        'type'   => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => true,
+        ],
+    ],
+    'include_replies'  => [
+        'type'   => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => false,
+        ],
+    ],
+    'cache_ttl'        => [
+        'type'        => 'anomaly.field_type.integer',
+        'placeholder' => 30,
     ],
 ];
