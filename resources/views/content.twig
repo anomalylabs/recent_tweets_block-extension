@@ -10,24 +10,49 @@
 <ul>
     {% for tweet in recent %}
         <li>
-            <span>{{ tweet.text|str_linkify|raw }}</span>
 
-            <a target="_blank"
-               href="http://twitter.com/{{ block.username }}/statuses/{{ tweet.id }}">
-                <small>{{ carbon(tweet.created_at).diffForHumans() }}</small>
-            </a>
+            <div class="tweet__author">
+                <a href="http://twitter.com/{{ block.username }}" class="tweet__avatar">
+                    {{ img(tweet.user.profile_image_url_https)|raw }}
+                </a>
+                <a href="http://twitter.com/{{ block.username }}" class="tweet__identity">
+                    {{ tweet.user.name }}
+                    <br>
+                    <small>@{{ tweet.user.screen_name }}</small>
+                </a>
+            </div>
 
-            {#<div class="share">#}
-                {#<a href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}">#}
-                    {#<span class="fa fa-reply"></span>#}
-                {#</a>#}
-                {#<a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}">#}
-                    {#<span class="fa fa-retweet"></span>#}
-                {#</a>#}
-                {#<a href="https://twitter.com/intent/like?tweet_id={{ tweet.id }}">#}
-                    {#<span class="fa fa-star"></span>#}
-                {#</a>#}
-            {#</div>#}
+            <div class="tweet__content"
+                 onclick="window.open('http://twitter.com/{{ block.username }}/statuses/{{ tweet.id }}')">
+                {{ tweet.text|str_linkify|raw }}
+            </div>
+
+            {% if tweet.entities.media %}
+                {% for image in tweet.entities.media %}
+                    {{ img(image.media_url_https)|raw }}
+                {% endfor %}
+            {% endif %}
+
+            <div class="tweet__actions">
+                <a href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}">
+                    <span class="fa fa-reply"></span>
+                </a>
+                <a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}">
+                    <span class="fa fa-retweet"></span>
+                </a>
+                <a href="https://twitter.com/intent/like?tweet_id={{ tweet.id }}">
+                    <span class="fa fa-star"></span>
+                </a>
+            </div>
+
+            <div class="tweet__metadata">
+                <a target="_blank"
+                   class="tweet__timeago"
+                   href="http://twitter.com/{{ block.username }}/statuses/{{ tweet.id }}">
+                    {{ carbon(tweet.created_at).diffForHumans() }}
+                </a>
+            </div>
+
         </li>
     {% endfor %}
 </ul>
