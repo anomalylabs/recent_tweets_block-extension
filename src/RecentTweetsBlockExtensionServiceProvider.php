@@ -20,7 +20,7 @@ class RecentTweetsBlockExtensionServiceProvider extends AddonServiceProvider
      */
     public function register(ViewIncludes $includes)
     {
-        $includes->add('scripts', 'anomaly.extension.recent_tweets_block::widgets');
+        $includes->add('scripts', 'anomaly.extension.recent_tweets_block::include');
     }
 
 }
