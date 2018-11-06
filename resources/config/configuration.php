@@ -8,6 +8,9 @@ return [
     'count'            => [
         'type'        => 'anomaly.field_type.integer',
         'placeholder' => 5,
+        'config'      => [
+            'min' => 1,
+        ],
     ],
     'include_retweets' => [
         'type'   => 'anomaly.field_type.boolean',
@@ -30,5 +33,8 @@ return [
     'cache_ttl'        => [
         'type'        => 'anomaly.field_type.integer',
         'placeholder' => 30,
+        'config'      => [
+            'min' => 1,
+        ],
     ],
 ];
