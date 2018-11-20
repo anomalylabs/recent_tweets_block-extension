@@ -50,24 +50,22 @@
             </div>
 
 
-            {% if block.display_media.is_true %}
-                {% if tweet.retweeted_status %}
-                    <div class="tweet__content"
-                         data-username="{{ tweet.retweeted_status.user.screen_name }}"
-                         data-status="{{ tweet.retweeted_status.id }}">
-                        {{ tweet.retweeted_status.text|str_linkify|raw }}
-                    </div>
-                {% else %}
-                    <div class="tweet__content"
-                         data-username="{{ block.username }}"
-                         data-status="{{ tweet.id }}">
-                        {{ tweet.text|str_linkify|raw }}
-                    </div>
-                {% endif %}
+            {% if tweet.retweeted_status %}
+                <div class="tweet__content"
+                     data-username="{{ tweet.retweeted_status.user.screen_name }}"
+                     data-status="{{ tweet.retweeted_status.id }}">
+                    {{ tweet.retweeted_status.text|str_linkify|raw }}
+                </div>
+            {% else %}
+                <div class="tweet__content"
+                     data-username="{{ block.username }}"
+                     data-status="{{ tweet.id }}">
+                    {{ tweet.text|str_linkify|raw }}
+                </div>
             {% endif %}
 
 
-            {% if tweet.entities.media %}
+            {% if block.display_media.is_true and tweet.entities.media %}
                 <div class="tweet__media">
                     {% for image in tweet.entities.media %}
                         <a href="http://twitter.com/{{ block.username }}/statuses/{{ tweet.id }}" target="_blank">
