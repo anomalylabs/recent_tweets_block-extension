@@ -1,0 +1,85 @@
+.block--recent_tweets_block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.block--recent_tweets_block ul li {
+  padding: 0.5em;
+  border-top: 1px solid #ecf0f1;
+}
+.block--recent_tweets_block ul li:last-of-type {
+  border-bottom: 1px solid #ecf0f1;
+}
+.block--recent_tweets_block ul li:hover {
+  background: #f5f8fb;
+}
+.block--recent_tweets_block .tweet__retweeted {
+  color: #889ba6;
+  font-size: 12px;
+  margin-left: 18px;
+  margin-bottom: 8px;
+}
+.block--recent_tweets_block .tweet__retweeted i {
+  color: #60cB8c;
+}
+.block--recent_tweets_block .tweet__author {
+  position: relative;
+  padding-left: 56px;
+}
+.block--recent_tweets_block .tweet__avatar {
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  text-decoration: none;
+}
+.block--recent_tweets_block .tweet__avatar img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+.block--recent_tweets_block .tweet__identity {
+  color: #2c3e50;
+  font-weight: bold;
+  text-decoration: none;
+}
+.block--recent_tweets_block .tweet__identity small {
+  color: #8899A6;
+  font-weight: normal;
+}
+.block--recent_tweets_block .tweet__content {
+  margin-top: 5px;
+  font-size: 125%;
+  cursor: pointer;
+  margin-left: 56px;
+  margin-bottom: 12px;
+}
+.block--recent_tweets_block .tweet__media {
+  margin-left: 56px;
+  margin-bottom: 12px;
+}
+.block--recent_tweets_block .tweet__media img {
+  max-width: 100%;
+}
+.block--recent_tweets_block .tweet__actions {
+  margin-left: 56px;
+  display: inline-block;
+}
+.block--recent_tweets_block .tweet__action {
+  color: #e2e8ec;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+.block--recent_tweets_block .tweet__action:hover {
+  color: #89c0f0;
+}
+.block--recent_tweets_block .tweet__action.tweet__action--like:hover {
+  color: #d74560;
+}
+.block--recent_tweets_block .tweet__metadata {
+  float: right;
+}
+.block--recent_tweets_block .tweet__metadata a {
+  color: #8899a6;
+}
